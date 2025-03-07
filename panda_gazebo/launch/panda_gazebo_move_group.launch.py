@@ -57,14 +57,13 @@ def generate_launch_description():
             i = i + 1
 
     # Configure robot_description
-    description_path = 'panda_description'
     moveit_config_path = 'panda_moveit_config'    
     srdf_path = 'config/panda.srdf'
     rviz_path = '/launch/run_move_group.rviz'     
 
     # Robot SDF Description
-    pkg_project_description = get_package_share_directory(description_path)
-    robot_description_config  =  xacro.process_file(os.path.join(pkg_project_description, 'urdf', 'panda.sdf'))
+    pkg_project_description = get_package_share_directory('panda_description')
+    robot_description_config  =  xacro.process_file(os.path.join(pkg_project_description, 'models', 'panda', 'model.sdf'))
     robot_description = {'robot_description': robot_description_config.toxml()}
 
     # SRDF Configuration
@@ -115,7 +114,7 @@ def generate_launch_description():
     }
 
     # Gazebo World and Simulator
-    pkg_project_gazebo = get_package_share_directory('ros_gz_example_gazebo')
+    pkg_project_gazebo = get_package_share_directory('panda_gazebo')
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
     gz_sim_DART = IncludeLaunchDescription(
