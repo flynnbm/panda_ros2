@@ -21,6 +21,5 @@ hand_controller:
   joint: panda_finger_joint1
   joints:
     - panda_finger_joint1
-    - panda_finger_joint2
   action_ns: gripper_cmd
   default: true
