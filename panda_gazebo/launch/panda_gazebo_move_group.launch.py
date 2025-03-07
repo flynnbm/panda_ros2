@@ -58,14 +58,13 @@ def generate_launch_description():
 
     # Configure robot_description
     description_path = 'panda_description'
-    xacro_path = 'panda.urdf.xacro'
     moveit_config_path = 'panda_moveit_config'    
     srdf_path = 'config/panda.srdf'
     rviz_path = '/launch/run_move_group.rviz'     
 
     # Robot SDF Description
-    pkg_project_description = get_package_share_directory('ros_gz_example_description')
-    robot_description_config  =  xacro.process_file(os.path.join(pkg_project_description, 'models', 'panda_moveit', 'model.sdf'))
+    pkg_project_description = get_package_share_directory(description_path)
+    robot_description_config  =  xacro.process_file(os.path.join(pkg_project_description, 'urdf', 'panda.sdf'))
     robot_description = {'robot_description': robot_description_config.toxml()}
 
     # SRDF Configuration
