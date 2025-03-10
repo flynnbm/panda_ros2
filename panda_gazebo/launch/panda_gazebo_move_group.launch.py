@@ -228,7 +228,7 @@ def generate_launch_description():
             gz_sim_bullet_featherstone,
             bridge,
             rviz_node,
-            static_tf,
+            # static_tf,
             robot_state_publisher,
             run_move_group_node,
             load_arm_controller,
