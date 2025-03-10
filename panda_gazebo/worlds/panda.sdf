@@ -18,14 +18,14 @@
       filename="gz-sim-user-commands-system"
       name="gz::sim::systems::UserCommands">
     </plugin>
-    <plugin
+    <!-- <plugin
       filename="BasicSystem"
       name="ros_gz_example_gazebo::BasicSystem">
     </plugin>
     <plugin
       filename="FullSystem"
       name="ros_gz_example_gazebo::FullSystem">
-    </plugin>
+    </plugin> -->
 
     <light name="sun" type="directional">
       <cast_shadows>true</cast_shadows>
@@ -103,12 +103,6 @@
       <include merge="true">
         <uri>package://panda_gazebo/models/panda</uri>
       </include>
-
-      <!--
-      45 deg - 0.7854
-      90 deg - 1.5708
-      180 deg - 3.1416      
-      -->
 
       <link name="sensor_link">
         <pose relative_to="panda_to_depth_camera">0 0 0 0 0 0</pose>
