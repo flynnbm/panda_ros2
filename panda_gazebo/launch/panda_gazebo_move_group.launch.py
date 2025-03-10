@@ -134,7 +134,7 @@ def generate_launch_description():
     )
 
     # ROS <--> Gazebo Sim Communication Bridge
-    pkg_project_bringup = get_package_share_directory('ros_gz_example_bringup')
+    pkg_project_bringup = get_package_share_directory('panda_gazebo')
 
     bridge = Node(
         package='ros_gz_bridge',
