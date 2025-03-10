@@ -33,26 +33,6 @@ def generate_launch_description():
         ])}.items(),
     )
 
-    pkg_project_bringup = get_package_share_directory('ros_gz_example_bringup')
-
-    # # Bridge ROS topics and Gazebo messages for establishing communication
-    # bridge = Node(
-    #     package='ros_gz_bridge',
-    #     executable='parameter_bridge',
-    #     parameters=[{
-    #         'config_file': os.path.join(pkg_project_bringup, 'config', 'tm5-700_bridge.yaml'),
-    #         'qos_overrides./tf_static.publisher.durability': 'transient_local',
-    #     }],
-    #     output='screen'
-    # )
-
-    # rviz_node = Node(
-    #     package='rviz2',
-    #     executable='rviz2',
-    #     # arguments=['-d', os.path.join(rviz_share, 'config', 'rrbot.rviz')], # change last arg to actual robot name
-    #     condition=IfCondition(LaunchConfiguration('rviz'))
-    # )
-
     # Start Robot State Publisher
     robot_state_publisher = Node(
         package='robot_state_publisher',
