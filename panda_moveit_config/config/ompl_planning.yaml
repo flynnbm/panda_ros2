@@ -136,7 +136,7 @@ planner_configs:
   TrajOptDefault:
     type: geometric::TrajOpt
 
-tmr_arm:
+panda_arm:
   default_planner_config: RRTConnectkConfigDefault
   planner_configs:
     - SBLkConfigDefault
