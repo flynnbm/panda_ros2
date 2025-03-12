@@ -29,21 +29,20 @@
         <joint name="panda_joint6" value="1.57"/>
         <joint name="panda_joint7" value="0.78"/>
     </group_state>
+    <group_state name="inspect" group="panda_arm">
+        <joint name="panda_joint1" value="0"/>
+        <joint name="panda_joint2" value="-0.122173"/>
+        <joint name="panda_joint3" value="0"/>
+        <joint name="panda_joint4" value="-1.22173"/>
+        <joint name="panda_joint5" value="0"/>
+        <joint name="panda_joint6" value="1.0821"/>
+        <joint name="panda_joint7" value="0.78"/>
+    </group_state>
     <group_state name="open" group="hand">
         <joint name="panda_finger_joint1" value="0.035"/>
     </group_state>
     <group_state name="close" group="hand">
         <joint name="panda_finger_joint1" value="0.01"/>
-    </group_state>
-    <group_state name="test_pose" group="panda_arm_hand">
-        <joint name="panda_joint1" value="0"/>
-        <joint name="panda_joint2" value="0"/>
-        <joint name="panda_joint3" value="0"/>
-        <joint name="panda_joint4" value="-1.57"/>
-        <joint name="panda_joint5" value="0"/>
-        <joint name="panda_joint6" value="1.57"/>
-        <joint name="panda_joint7" value="0.78"/>
-        <joint name="panda_finger_joint1" value="0.035"/>
     </group_state>
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="FixedBase" type="fixed" parent_frame="world" child_link="panda_link0"/>
