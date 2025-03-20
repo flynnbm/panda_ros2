@@ -287,31 +287,22 @@
             <dynamics damping="0.3" />
         </joint>
         
-        <joint name="panda_camera_joint" type="fixed">
-        <pose relative_to="panda_link7">0.01 0 0.01 0 0 0</pose>
-        <parent>panda_link7</parent>
-        <child>rgbd_camera_link</child>
-        </joint>
         <link name="rgbd_camera_link">
-        <pose relative_to="panda_camera_joint">0 0 0 0 0 0</pose>
+            <origin xyz="0 0 0" rpy="0 0 0" />
         </link>
-
-        <joint name="panda_joint8" type="fixed">
-        <pose relative_to="panda_link7">0 0 0.107 0 0 0</pose>
-        <parent>panda_link7</parent>
-        <child>panda_link8</child>
-        </joint>
-        <link name='panda_link8'>
-        <pose relative_to="panda_joint8">0 0 0 0 0 0</pose>
-        </link>
-
-        <joint name="panda_joint10" type="fixed">
-        <pose relative_to="panda_hand">0 0 0.100 0 0 0</pose>
-        <parent>panda_hand</parent>
-        <child>panda_tcp</child>
+        <joint name="panda_camera_joint" type="fixed">
+            <origin xyz="0.1 0 0.1" rpy="0 0 0" />
+            <parent link="panda_link7" />
+            <child link="rgbd_camera_link" />
         </joint>
         <link name='panda_tcp'>
-        <pose relative_to="panda_joint10">0 0 0 0 0 0</pose>
+            <origin xyz="0 0 0" rpy="0 0 0" />
         </link>
+        <joint name="panda_joint10" type="fixed">
+            <origin rpy="0 0 0" xyz="0 0 0.100" />
+            <parent link="panda_hand" />
+            <child link="panda_tcp" />
+        </joint>
+
     </xacro:macro>
 </robot>
