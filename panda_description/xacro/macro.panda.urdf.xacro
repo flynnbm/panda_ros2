@@ -5,6 +5,11 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
     <xacro:macro name="panda" params="ns prefix" >
+        <!-- <link name="world" />
+        <joint name="world_joint" type="fixed">
+            <parent link="world" />
+            <child link="panda_link0" />
+        </joint> -->
         <link name="panda_link0">
             <visual>
                 <geometry>
