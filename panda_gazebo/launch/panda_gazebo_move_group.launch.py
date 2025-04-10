@@ -24,6 +24,7 @@ from launch.actions import IncludeLaunchDescription
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch.actions import TimerAction
 
 from launch_ros.actions import SetParameter
 
@@ -222,6 +223,44 @@ def generate_launch_description():
         value=True
     )
 
+    cartesian_move_to_pose_service = Node(
+        package='robot_common_manip',
+        executable='cartesian_move_to_pose_service',
+        name='cartesian_move_to_pose_service',
+        output='screen',
+        parameters=[
+            robot_description,
+            robot_description_semantic,
+            {'planning_group': 'panda_arm'},
+            {'jump_threshold': 0.0},
+            {'eef_step': 0.01}
+        ]
+    )
+
+    move_to_named_pose_service = Node(
+        package='robot_common_manip',  # Replace with your actual package name
+        executable='move_to_named_pose_service',
+        name='move_to_named_pose_service',
+        output='screen',
+        parameters=[
+            robot_description,
+            robot_description_semantic,
+            {'planning_group': 'panda_arm'},
+        ]
+    )
+
+    move_to_pose_service = Node(
+        package='robot_common_manip',
+        executable='move_to_pose_service',
+        name='move_to_pose_service',
+        output='screen',
+        parameters=[
+            robot_description,
+            robot_description_semantic,
+            {'planning_group': 'panda_arm'}
+        ]
+    )
+
     # Launching all the nodes
     return LaunchDescription(
         [
@@ -233,5 +272,8 @@ def generate_launch_description():
             load_arm_controller,
             load_hand_controller,
             set_sim_time,
+            cartesian_move_to_pose_service,
+            move_to_named_pose_service,
+            move_to_pose_service,
         ]
     )
