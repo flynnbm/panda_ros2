@@ -238,7 +238,7 @@ def generate_launch_description():
     )
 
     move_to_named_pose_service = Node(
-        package='robot_common_manip',  # Replace with your actual package name
+        package='robot_common_manip',
         executable='move_to_named_pose_service',
         name='move_to_named_pose_service',
         output='screen',
