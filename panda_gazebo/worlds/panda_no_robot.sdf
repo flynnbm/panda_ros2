@@ -60,7 +60,7 @@
       </link>
     </model>
 
-    <model name="pedestal">
+    <!-- <model name="pedestal">
       <static>true</static>
       <link name="pedestal_link">
         <pose>-0.05125 0 0.25 0 0 0</pose>
@@ -87,16 +87,16 @@
           </geometry>
         </visual>
       </link>
-    </model>
+    </model> -->
 
-    <model name="table">
+    <!-- <model name="table">
       <static>true</static>
       <self_collide>true</self_collide>
       <pose>0.55 0 0 0 0 0</pose>
       <include merge="true">
         <uri>package://panda_gazebo/models/table</uri>
       </include>
-    </model>
+    </model> -->
 
   </world>
 </sdf>
