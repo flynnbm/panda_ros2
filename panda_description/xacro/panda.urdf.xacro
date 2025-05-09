@@ -25,9 +25,6 @@
   <!-- Arm -->
   <xacro:panda ns="$(arg ns)" prefix="$(arg prefix)" parent="mounting_block" />
 
-  <!-- World link inclusion -->
-  <!-- <link name="world" /> -->
-
   <!-- Create a very heavy, inert base to be used as a mounting point for the arm-->
   <link name="mounting_block">
     <visual>
