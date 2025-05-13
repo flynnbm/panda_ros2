@@ -73,6 +73,16 @@
       </actuator>
     </transmission>
 
+    <transmission name="${prefix}trans_7">
+      <type>transmission_interface/TransmissionInterface</type>
+      <joint name="${prefix}panda_finger_joint1">
+        <hardwareInterface>${hw_iface}</hardwareInterface>
+      </joint>
+      <actuator name="${prefix}motor_7">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
   </xacro:macro>
 
 </robot>
