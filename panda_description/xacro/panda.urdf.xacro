@@ -11,16 +11,13 @@
   <xacro:include filename="$(find panda_description)/xacro/macro.ros2_control.xacro" />
   <xacro:include filename="$(find panda_description)/xacro/macro.transmission.xacro" />
 
-
   <!-- panda -->
   <xacro:include filename="$(find panda_description)/xacro/macro.panda.urdf.xacro" />
-
 
   <!-- panda gazebo components -->
   <xacro:panda_gazebo ns="$(arg ns)" prefix="$(arg prefix)" />
   <xacro:panda_transmission prefix="$(arg prefix)" hw_iface="$(arg trans_hw_iface)" />
   <xacro:panda_ros2_control ns="$(arg ns)" prefix="$(arg prefix)" />
-
 
   <!-- Arm -->
   <xacro:panda ns="$(arg ns)" prefix="$(arg prefix)" parent="mounting_block" />
