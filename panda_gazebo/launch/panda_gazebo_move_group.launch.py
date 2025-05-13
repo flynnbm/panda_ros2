@@ -188,9 +188,9 @@ def launch_setup(context, *args, **kwargs):
         arguments=[
             "-name", robot_name,
             "-topic", "/robot_description",
-            "-x", "0",
-            "-y", "0",
-            "-z", "1.4",
+            "-x", "0.0",
+            "-y", "0.0",
+            "-z", "1.0",
         ],
         output="screen",
     )
