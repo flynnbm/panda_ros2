@@ -55,6 +55,9 @@ def launch_setup(context, *args, **kwargs):
     kinematics_yaml = load_yaml(moveit_config_package, 'config/kinematics.yaml')
     robot_description_kinematics = {'robot_description_kinematics': kinematics_yaml}
 
+    # Planning Group
+    planning_group = f"{robot_name}_arm"
+
     # OMPL Planning
     ompl_planning_pipeline_config = {
         'planning_pipelines': ['ompl'],
@@ -195,6 +198,42 @@ def launch_setup(context, *args, **kwargs):
         output="screen",
     )
 
+    move_named = Node(
+        package="robot_common_manip",
+        executable="move_to_named_pose_service",
+        name="move_to_named_pose_service",
+        output="screen",
+        parameters=[
+            {"planning_group": planning_group},
+            robot_description,
+            robot_description_semantic,
+        ],
+    )
+
+    move_pose = Node(
+        package="robot_common_manip",
+        executable="move_to_pose_service",
+        name="move_to_pose_service",
+        output="screen",
+        parameters=[
+            {"planning_group": planning_group},
+            robot_description,
+            robot_description_semantic,
+        ],
+    )
+
+    fake_grasp = Node(
+        package="robot_common_manip",
+        executable="fake_grasp_service",
+        name="fake_grasp_service",
+        output="screen",
+        parameters=[
+            {"planning_group": planning_group},
+            robot_description,
+            robot_description_semantic,
+        ],
+    )
+
     return [
         gz_sim,
         spawn_entity,
@@ -205,6 +244,9 @@ def launch_setup(context, *args, **kwargs):
         run_move_group_node,
         load_arm_controller,
         load_hand_controller,
+        move_named,
+        move_pose,
+        fake_grasp,
     ]
 
 def generate_launch_description():
