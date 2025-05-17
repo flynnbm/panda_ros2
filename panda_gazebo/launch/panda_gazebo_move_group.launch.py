@@ -163,14 +163,6 @@ def launch_setup(context, *args, **kwargs):
         parameters=[robot_description]
     )
 
-    joint_state_publisher = Node(
-        package="joint_state_publisher",
-        executable="joint_state_publisher",
-        name="joint_state_publisher",
-        parameters=[robot_description],
-        output="screen",
-    )
-
     load_arm_controller = Node(
         package="controller_manager",
         executable="spawner",
@@ -240,7 +232,6 @@ def launch_setup(context, *args, **kwargs):
         bridge,
         rviz_node,
         robot_state_publisher,
-        joint_state_publisher,
         run_move_group_node,
         load_arm_controller,
         load_hand_controller,
