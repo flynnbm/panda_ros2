@@ -33,7 +33,8 @@ def load_yaml(package_name, file_path):
 def launch_setup(context, *args, **kwargs):
     robot_name = LaunchConfiguration('robot_name').perform(context)
 
-    description_package = f"{robot_name}_description"
+    # description_package = f"{robot_name}_description"
+    description_package = "armada_description"
     moveit_config_package = f"{robot_name}_moveit_config"
     gazebo_package = f"{robot_name}_gazebo"
 
@@ -43,6 +44,7 @@ def launch_setup(context, *args, **kwargs):
     ros_gz_sim_path = get_package_share_directory('ros_gz_sim')
 
     # Robot Description
+    # xacro_path = os.path.join(robot_description_pkg, 'xacro', f'{robot_name}.urdf.xacro')
     xacro_path = os.path.join(robot_description_pkg, 'xacro', f'{robot_name}.urdf.xacro')
     robot_description_config = xacro.process_file(xacro_path)
     robot_description = {'robot_description': robot_description_config.toxml()}
